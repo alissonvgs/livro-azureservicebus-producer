@@ -2,7 +2,8 @@ package com.desafio.softdesign.domain.user;
 
 public enum UserRole {
     ADMIN("admin"),
-    USER("user");
+    USER("user"),
+    TEST("test");
 
     private String role;
 

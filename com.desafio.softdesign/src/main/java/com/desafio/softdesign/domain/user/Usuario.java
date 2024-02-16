@@ -30,6 +30,12 @@ public class Usuario implements UserDetails {
     public Usuario() {
     }
 
+    public Usuario(String login, String passwordCriptografada, UserRole role) {
+        this.login = login;
+        this.password = passwordCriptografada;
+        this.role = role;
+    }
+
 
     public Long getId() {
         return id;
@@ -51,8 +57,10 @@ public class Usuario implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == UserRole.ADMIN) {
             return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        } else {
+        } else if (this.role == UserRole.USER){
             return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }else{
+            return List.of(new SimpleGrantedAuthority("ROLE_TEST"));
         }
     }
 
