@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LivroService {
@@ -35,5 +36,7 @@ public class LivroService {
     public List<Livro> findAllLivros() {
         return livroRepository.findAll();
     }
+
+    public Optional<Livro> findById(Long id) { return livroRepository.findById(id); }
 
 }
